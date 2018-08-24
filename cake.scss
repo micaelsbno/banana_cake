@@ -1,0 +1,269 @@
+$room-wall: #0E2034;
+$room-wall-light: #244C7B;
+$room-wall-medium: #1B3757;
+
+$candle-shadow: #E2D84A;
+$candle: #F8E71C;
+$candle-width: 100%;
+
+$candle-flame-height: 3rem;
+
+$cake-width: 100%;
+$cake-shadow-witdh: 18%;
+
+$cake-topping-color: #4A90E2;
+$cake-topping-shadow: #4A71E2;
+$cake-topping-height: 10%;
+
+$cake-filling-color: #FFEC01;
+$cake-filling-shadow: #E2D84A;
+$cake-filling-height: 50%;
+
+$cake-bottom-color: #E2B34A;
+$cake-bottom-shadow: #D3AA50;
+$cake-bottom-height: 10%;
+
+
+* {
+  box-sizing: border-box
+}
+
+body {
+  margin: 0
+}
+
+.room {
+  position: relative;
+  overflow: hidden;
+  padding: 10% 0 0 0;
+  background-color: $room-wall;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 0;
+}
+
+.room__background {
+  position: fixed;
+  height: 50rem;
+  width: 50rem;
+  background-color: $room-wall-light;
+  transform: rotate(45deg);
+  border: 50px solid $room-wall-medium;
+  z-index: 1;
+}
+
+.cake {
+  height: 300px;
+  width: 240px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: column;
+  z-index: 2;
+}
+
+.candles-section {
+  height: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.candle {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  height: 80%;
+  margin: 0 auto;
+  width: 10%;
+}
+
+.candle:nth-child(2){
+  height: 90%;
+}
+
+.candle__flame {
+  position: relative;
+}
+
+.candle__flame--core:before {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    margin-top: 0;
+    margin-left: 0;
+    border-top: 0;
+    border-left: 0.74rem solid transparent;
+    border-right: 0.74rem solid transparent;
+    border-bottom: 1.2rem solid $candle-shadow;
+}
+
+.candle__flame--core:after {
+    position: absolute;
+    content: "";
+    top: 0.6rem;
+    left: 0.4rem;
+    width: 0;
+    height: 0;
+    border-left: 0.355rem solid transparent;
+    border-right: 0.355rem solid transparent;
+    border-bottom: 0.6rem solid $candle;
+}
+
+.candle__body {
+  display: flex;
+  height: 100%;
+  background-color: $candle;
+  width: 100%;
+  margin-top: 23px;
+}
+
+.candle__body--shadow {
+  width: 25%;
+  background-color: $candle-shadow
+}
+
+.cake__topping {
+  display: flex;
+  width: $cake-width;
+  height: $cake-topping-height;
+  background-color: $cake-topping-color
+}
+
+.cake__topping--shadow {
+  width: $cake-shadow-witdh;
+  background-color: $cake-topping-shadow
+}
+
+.cake__filling {
+  display: flex;
+  width: $cake-width;
+  height: $cake-filling-height;
+  background-color: $cake-filling-color
+}
+
+.cake__filling--shadow {
+  width: $cake-shadow-witdh;
+  background-color: $cake-filling-shadow
+}
+
+.cake__bottom {
+  display: flex;
+  width: $cake-width;
+  height: $cake-bottom-height;
+  background-color: $cake-bottom-color
+}
+
+.cake__bottom--shadow {
+  width: $cake-shadow-witdh;
+  background-color: $cake-bottom-shadow
+}
+
+// //////////////////////
+// //////////
+// 
+// animations
+// 
+/////////////////
+// ///////////////////////
+
+.bounce {
+  -webkit-animation-name: bounce;
+  animation-name: bounce;
+  animation-duration: 0.8s;
+  animation-iteration-count: infinite;
+    -webkit-transform-origin: center bottom;
+  transform-origin: center bottom;
+  animation-timing-function: ease;
+}
+
+
+.bounce-bg {
+  -webkit-animation-name: bounce-bg;
+  animation-name: bounce-bg;
+  animation-duration: 0.8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
+}
+
+
+.shadows {
+  -webkit-animation-name: shadows;
+  animation-name: shadows;
+  animation-duration: 0.7s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
+}
+
+
+@keyframes shadows {
+  0% { width: 22% }
+  14% { width: 23% }
+  28% { width: 22% }
+  50% { width: 23% }
+  78% { width: 22% }
+  100% { width: 23%}
+  
+}
+
+@-webkit-keyframes bounce {
+  0% { -webkit-transform: translate(-2px, 0px) rotate(0deg); }
+  
+  14% { -webkit-transform: translate(0px, -2px) rotate(1deg); }
+  
+  28% { -webkit-transform: translate(-2px, -3px) rotate(1deg); }
+  
+  50% { -webkit-transform: translate(-1px, -1px) rotate(0deg); }
+  
+  78% { -webkit-transform: translate(2px, 0px) rotate(1deg); }
+  
+  100% { -webkit-transform: translate(0px, -1px) rotate(-1deg); }
+}
+
+
+@-webkit-keyframes bounce-bg {
+  0% { 
+    transform: 
+      rotate(45deg) 
+      translate(2px, 0px); 
+    border: 57px solid #1B3757
+  }
+  
+  15% { 
+    transform: 
+      rotate(46deg) 
+      translate(0px, 2px); 
+    border: 56px solid #1B3757
+  }
+  
+  29% { 
+    transform: 
+      rotate(46deg) 
+      translate(2px, 3px);
+    border: 60px solid #1B3757
+  }
+  
+  51% { 
+    transform: 
+      rotate(45deg) 
+      translate(1px, 1px);
+    border: 58px solid #1B3757
+  }
+  
+  79% { 
+    transform: 
+      rotate(46deg) 
+      translate(-2px, 0px);
+    border: 60px solid #1B3757
+  }
+  
+  100% { 
+    transform: 
+      rotate(44deg) 
+      translate(0px, 1px);
+    border: 60px solid #1B3757
+  }
+}

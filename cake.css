@@ -1,0 +1,230 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.room {
+  position: relative;
+  overflow: hidden;
+  padding: 10% 0 0 0;
+  background-color: #0E2034;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 0;
+}
+
+.room__background {
+  position: fixed;
+  height: 50rem;
+  width: 50rem;
+  background-color: #244C7B;
+  transform: rotate(45deg);
+  border: 50px solid #1B3757;
+  z-index: 1;
+}
+
+.cake {
+  height: 300px;
+  width: 240px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: column;
+  z-index: 2;
+}
+
+.candles-section {
+  height: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.candle {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  height: 80%;
+  margin: 0 auto;
+  width: 10%;
+}
+
+.candle:nth-child(2) {
+  height: 90%;
+}
+
+.candle__flame {
+  position: relative;
+}
+
+.candle__flame--core:before {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0;
+  margin-top: 0;
+  margin-left: 0;
+  border-top: 0;
+  border-left: 0.74rem solid transparent;
+  border-right: 0.74rem solid transparent;
+  border-bottom: 1.2rem solid #E2D84A;
+}
+
+.candle__flame--core:after {
+  position: absolute;
+  content: "";
+  top: 0.6rem;
+  left: 0.4rem;
+  width: 0;
+  height: 0;
+  border-left: 0.355rem solid transparent;
+  border-right: 0.355rem solid transparent;
+  border-bottom: 0.6rem solid #F8E71C;
+}
+
+.candle__body {
+  display: flex;
+  height: 100%;
+  background-color: #F8E71C;
+  width: 100%;
+  margin-top: 23px;
+}
+
+.candle__body--shadow {
+  width: 25%;
+  background-color: #E2D84A;
+}
+
+.cake__topping {
+  display: flex;
+  width: 100%;
+  height: 10%;
+  background-color: #4A90E2;
+}
+
+.cake__topping--shadow {
+  width: 18%;
+  background-color: #4A71E2;
+}
+
+.cake__filling {
+  display: flex;
+  width: 100%;
+  height: 50%;
+  background-color: #FFEC01;
+}
+
+.cake__filling--shadow {
+  width: 18%;
+  background-color: #E2D84A;
+}
+
+.cake__bottom {
+  display: flex;
+  width: 100%;
+  height: 10%;
+  background-color: #E2B34A;
+}
+
+.cake__bottom--shadow {
+  width: 18%;
+  background-color: #D3AA50;
+}
+
+.bounce {
+  -webkit-animation-name: bounce;
+  animation-name: bounce;
+  animation-duration: 0.8s;
+  animation-iteration-count: infinite;
+  -webkit-transform-origin: center bottom;
+  transform-origin: center bottom;
+  animation-timing-function: ease;
+}
+
+.bounce-bg {
+  -webkit-animation-name: bounce-bg;
+  animation-name: bounce-bg;
+  animation-duration: 0.8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
+}
+
+.shadows {
+  -webkit-animation-name: shadows;
+  animation-name: shadows;
+  animation-duration: 0.7s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
+}
+
+@keyframes shadows {
+  0% {
+    width: 22%;
+  }
+  14% {
+    width: 23%;
+  }
+  28% {
+    width: 22%;
+  }
+  50% {
+    width: 23%;
+  }
+  78% {
+    width: 22%;
+  }
+  100% {
+    width: 23%;
+  }
+}
+@-webkit-keyframes bounce {
+  0% {
+    -webkit-transform: translate(-2px, 0px) rotate(0deg);
+  }
+  14% {
+    -webkit-transform: translate(0px, -2px) rotate(1deg);
+  }
+  28% {
+    -webkit-transform: translate(-2px, -3px) rotate(1deg);
+  }
+  50% {
+    -webkit-transform: translate(-1px, -1px) rotate(0deg);
+  }
+  78% {
+    -webkit-transform: translate(2px, 0px) rotate(1deg);
+  }
+  100% {
+    -webkit-transform: translate(0px, -1px) rotate(-1deg);
+  }
+}
+@-webkit-keyframes bounce-bg {
+  0% {
+    transform: rotate(45deg) translate(2px, 0px);
+    border: 57px solid #1B3757;
+  }
+  15% {
+    transform: rotate(46deg) translate(0px, 2px);
+    border: 56px solid #1B3757;
+  }
+  29% {
+    transform: rotate(46deg) translate(2px, 3px);
+    border: 60px solid #1B3757;
+  }
+  51% {
+    transform: rotate(45deg) translate(1px, 1px);
+    border: 58px solid #1B3757;
+  }
+  79% {
+    transform: rotate(46deg) translate(-2px, 0px);
+    border: 60px solid #1B3757;
+  }
+  100% {
+    transform: rotate(44deg) translate(0px, 1px);
+    border: 60px solid #1B3757;
+  }
+}
